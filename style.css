@@ -1,0 +1,174 @@
+/* Paleta de Cores e Configurações Gerais */
+:root {
+    --roxo-forte: #5D3FD3; /* Roxo principal, luxuoso */
+    --lilas-claro: #F4EFFF; /* Lilás bem suave para fundos */
+    --branco: #FFFFFF;
+    --texto-escuro: #2D2D2D;
+    --texto-claro: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--texto-escuro);
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: var(--branco);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--roxo-forte);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--texto-escuro);
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--roxo-forte);
+}
+
+/* Botões */
+.btn-primario {
+    background-color: var(--roxo-forte);
+    color: var(--branco);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primario:hover {
+    background-color: #4A32A8;
+    box-shadow: 0 5px 15px rgba(93, 63, 211, 0.3);
+}
+
+/* Banner Principal (Hero) */
+.hero {
+    background-color: var(--lilas-claro);
+    padding: 120px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--roxo-forte);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--texto-claro);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* Seções Padrão */
+.secao {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.fundo-lilas {
+    background-color: var(--lilas-claro);
+}
+
+h2 {
+    font-size: 32px;
+    color: var(--roxo-forte);
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    color: var(--texto-claro);
+    margin-bottom: 40px;
+}
+
+/* Filtros do Portfólio */
+.filtros {
+    margin-bottom: 40px;
+}
+
+.filtros button {
+    background: transparent;
+    border: 1px solid var(--roxo-forte);
+    color: var(--roxo-forte);
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.filtros button:hover, .filtros .filtro-ativo {
+    background: var(--roxo-forte);
+    color: var(--branco);
+}
+
+.galeria-placeholder {
+    height: 300px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    border-radius: 10px;
+}
+
+/* Formulário */
+.formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario input, .formulario select {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.formulario input:focus, .formulario select:focus {
+    border-color: var(--roxo-forte);
+}
+
+.btn-whatsapp {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 16px;
+}

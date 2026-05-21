@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gisele Tranças | Estúdio Especializado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Gisele Tranças</div>
+        <nav>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#agendamento" class="btn-primario">Agendar Horário</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Arte em cada detalhe.</h1>
+            <p>Especialista em Nagô, Box Braids, Fulani e Entrelace. Realce sua beleza e poder com um atendimento exclusivo.</p>
+            <a href="#agendamento" class="btn-primario">Quero me transformar</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="secao">
+        <h2>Inspirações</h2>
+        <div class="filtros">
+            <button class="filtro-ativo">Estilo</button>
+            <button>Cor</button>
+            <button>Espessura</button>
+        </div>
+        <div class="galeria-placeholder">
+            <p>[Aqui entrarão as fotos dos álbuns da Gisele]</p>
+        </div>
+    </section>
+
+    <section id="agendamento" class="secao fundo-lilas">
+        <h2>Reserve seu Horário</h2>
+        <p class="subtitulo">Preencha os dados abaixo. Você será direcionada ao WhatsApp para enviar as fotos do seu cabelo e confirmar o sinal.</p>
+        
+        <form class="formulario">
+            <input type="text" placeholder="Seu Nome Completo" required>
+            <input type="text" placeholder="Data de Nascimento (DD/MM/AAAA)" required>
+            <select required>
+                <option value="" disabled selected>Qual trança você deseja?</option>
+                <option value="nago">Nagô</option>
+                <option value="boxeadora">Boxeadora</option>
+                <option value="fulani">Fulani</option>
+                <option value="boxbraids">Box Braids</option>
+                <option value="gipsy">Gipsy / Knotless</option>
+                <option value="entrelace">Entrelace</option>
+            </select>
+            <button type="button" class="btn-primario btn-whatsapp">Avançar para o WhatsApp</button>
+        </form>
+    </section>
+
+</body>
+</html>
