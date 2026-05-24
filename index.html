@@ -1,61 +1,251 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gisele Tranças | Estúdio Especializado</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gisele Souza Cardoso | Estúdio de Tranças</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Gisele Tranças</div>
-        <nav>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#agendamento" class="btn-primario">Agendar Horário</a>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      Gisele <span>Tranças</span>
+    </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Arte em cada detalhe.</h1>
-            <p>Especialista em Nagô, Box Braids, Fulani e Entrelace. Realce sua beleza e poder com um atendimento exclusivo.</p>
-            <a href="#agendamento" class="btn-primario">Quero me transformar</a>
-        </div>
-    </section>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#agendamento" class="btn-menu">
+        Agendar
+      </a>
+    </nav>
+  </header>
 
-    <section id="portfolio" class="secao">
-        <h2>Inspirações</h2>
-        <div class="filtros">
-            <button class="filtro-ativo">Estilo</button>
-            <button>Cor</button>
-            <button>Espessura</button>
-        </div>
-        <div class="galeria-placeholder">
-            <p>[Aqui entrarão as fotos dos álbuns da Gisele]</p>
-        </div>
-    </section>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
 
-    <section id="agendamento" class="secao fundo-lilas">
-        <h2>Reserve seu Horário</h2>
-        <p class="subtitulo">Preencha os dados abaixo. Você será direcionada ao WhatsApp para enviar as fotos do seu cabelo e confirmar o sinal.</p>
-        
-        <form class="formulario">
-            <input type="text" placeholder="Seu Nome Completo" required>
-            <input type="text" placeholder="Data de Nascimento (DD/MM/AAAA)" required>
-            <select required>
-                <option value="" disabled selected>Qual trança você deseja?</option>
-                <option value="nago">Nagô</option>
-                <option value="boxeadora">Boxeadora</option>
-                <option value="fulani">Fulani</option>
-                <option value="boxbraids">Box Braids</option>
-                <option value="gipsy">Gipsy / Knotless</option>
-                <option value="entrelace">Entrelace</option>
-            </select>
-            <button type="button" class="btn-primario btn-whatsapp">Avançar para o WhatsApp</button>
-        </form>
-    </section>
+    <div class="hero-text">
+
+      <div class="tag">
+        ✨ Especialista em Tranças
+      </div>
+
+      <h1>
+        Arte em <br>
+        cada detalhe.
+      </h1>
+
+      <p>
+        Tranças feitas com técnica, cuidado
+        e identidade. Valorize sua beleza
+        com um atendimento exclusivo.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#agendamento" class="btn-primario">
+          Agendar horário
+        </a>
+
+        <a href="#portfolio" class="btn-secundario">
+          Ver inspirações
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <!-- TROCAR FOTO -->
+      <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1200&auto=format&fit=crop" alt="Modelo com tranças">
+
+    </div>
+
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="beneficios">
+
+ <div class="beneficio">
+  <h3>Tranças Profissionais</h3>
+  <p>Técnicas modernas e acabamento impecável.</p>
+</div>
+
+<div class="beneficio">
+  <h3>Atendimento Exclusivo</h3>
+  <p>Cada cliente é única. Seu horário é especial.</p>
+</div>
+
+<div class="beneficio">
+  <h3>Conforto e Qualidade</h3>
+  <p>Produtos de qualidade e cuidados com seus fios.</p>
+</div>
+
+<div class="beneficio">
+  <h3>Realce sua Beleza</h3>
+  <p>Tranças que valorizam sua personalidade e estilo.</p>
+</div>
+
+  </section>
+
+  <!-- PORTFÓLIO -->
+  <section class="portfolio" id="portfolio">
+
+    <div class="titulo-secao">
+      <span>Inspirações</span>
+      <h2>Escolha seu estilo</h2>
+    </div>
+
+    <div class="filtros">
+      <button class="ativo">Todas</button>
+      <button>Nagô</button>
+      <button>Fulani</button>
+      <button>Box Braids</button>
+      <button>Entrelace</button>
+    </div>
+
+    <div class="grid-galeria">
+
+      <!-- TROCAR IMAGENS -->
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="item-galeria">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop" alt="">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+
+    <div class="sobre-box">
+
+      <div class="sobre-texto">
+
+        <span>Sobre o estúdio</span>
+
+        <h2>
+          Beleza, identidade
+          e autoestima.
+        </h2>
+
+        <p>
+          O Estúdio Gisele Souza Cardoso nasceu
+          para valorizar a beleza feminina através
+          de tranças modernas, elegantes e cheias
+          de personalidade.
+        </p>
+
+        <p>
+          Cada atendimento é feito com atenção
+          aos detalhes, conforto e carinho,
+          proporcionando uma experiência única.
+        </p>
+
+      </div>
+
+      <div class="sobre-imagem">
+
+        <!-- TROCAR FOTO -->
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop" alt="">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AGENDAMENTO -->
+  <section class="agendamento" id="agendamento">
+
+    <div class="agendamento-container">
+
+      <div class="agendamento-texto">
+
+        <span>Agendamento</span>
+
+        <h2>
+          Reserve seu horário
+        </h2>
+
+        <p>
+          Preencha os dados abaixo e finalize
+          o atendimento pelo WhatsApp.
+        </p>
+
+      </div>
+
+      <form class="formulario">
+
+        <input type="text" placeholder="Seu nome completo">
+
+        <input type="text" placeholder="Data de nascimento">
+
+        <select>
+          <option>Qual trança você deseja?</option>
+          <option>Nagô</option>
+          <option>Fulani</option>
+          <option>Box Braids</option>
+          <option>Entrelace</option>
+          <option>Knotless</option>
+        </select>
+
+        <button type="button">
+          Avançar para o WhatsApp
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h3>Gisele Souza Cardoso</h3>
+
+    <p>
+      Sua beleza é única. Suas tranças também.
+    </p>
+
+    <a href="https://instagram.com/estudiogiselecardoso" target="_blank">
+      @estudiogiselecardoso
+    </a>
+
+  </footer>
 
 </body>
 </html>
