@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Admin | Gisele Tranças</title>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">Gisele <span>Admin</span></div>
+    <p>Acesso restrito ao estúdio</p>
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" id="loginSenha" placeholder="••••••••" onkeydown="if(event.key==='Enter')fazerLogin()">
+    </div>
+    <div id="loginErro" class="login-erro" style="display:none">Senha incorreta.</div>
+    <button onclick="fazerLogin()" class="btn-login">Entrar</button>
+  </div>
+</div>
+
+<!-- PAINEL -->
+<div class="admin-wrap" id="adminWrap" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">Gisele <span>Admin</span></div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item ativo" data-aba="dashboard" onclick="mudarAba('dashboard',this)">
+        <span class="nav-icon">📊</span> Dashboard
+      </a>
+      <a href="#" class="nav-item" data-aba="agendamentos" onclick="mudarAba('agendamentos',this)">
+        <span class="nav-icon">📅</span> Agendamentos
+      </a>
+      <a href="#" class="nav-item" data-aba="profissionais" onclick="mudarAba('profissionais',this)">
+        <span class="nav-icon">💇</span> Profissionais
+      </a>
+      <a href="#" class="nav-item" data-aba="clientes" onclick="mudarAba('clientes',this)">
+        <span class="nav-icon">👥</span> Clientes
+      </a>
+      <a href="#" class="nav-item" data-aba="faturamento" onclick="mudarAba('faturamento',this)">
+        <span class="nav-icon">💰</span> Faturamento
+      </a>
+      <a href="#" class="nav-item" data-aba="estoque" onclick="mudarAba('estoque',this)">
+        <span class="nav-icon">📦</span> Estoque
+      </a>
+    </nav>
+    <button class="btn-sair" onclick="sair()">Sair</button>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="admin-main">
+
+    <!-- ═══ DASHBOARD ═══ -->
+    <div class="aba ativa" id="aba-dashboard">
+      <div class="aba-header"><h1>Dashboard</h1><span id="dataHoje"></span></div>
+      <div class="kpis" id="kpis"></div>
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h3>⏳ Aguardando confirmação</h3>
+          <div class="ag-lista" id="listaAnalise"></div>
+        </div>
+        <div class="dash-card">
+          <h3>✅ Próximos confirmados</h3>
+          <div class="ag-lista" id="listaProximos"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ AGENDAMENTOS ═══ -->
+    <div class="aba" id="aba-agendamentos">
+      <div class="aba-header">
+        <h1>Agendamentos</h1>
+        <div class="filtro-status" id="filtroStatus">
+          <button class="fs-btn ativo" data-s="todos" onclick="filtrarStatus('todos',this)">Todos</button>
+          <button class="fs-btn" data-s="analise" onclick="filtrarStatus('analise',this)">Em análise</button>
+          <button class="fs-btn" data-s="confirmado" onclick="filtrarStatus('confirmado',this)">Confirmados</button>
+          <button class="fs-btn" data-s="cancelado" onclick="filtrarStatus('cancelado',this)">Cancelados</button>
+          <button class="fs-btn" data-s="concluido" onclick="filtrarStatus('concluido',this)">Concluídos</button>
+        </div>
+      </div>
+      <div class="ag-tabela" id="tabelaAgendamentos"></div>
+    </div>
+
+    <!-- ═══ PROFISSIONAIS ═══ -->
+    <div class="aba" id="aba-profissionais">
+      <div class="aba-header"><h1>Profissionais</h1></div>
+      <div class="prof-cards" id="profCards"></div>
+    </div>
+
+    <!-- ═══ CLIENTES ═══ -->
+    <div class="aba" id="aba-clientes">
+      <div class="aba-header">
+        <h1>Clientes</h1>
+        <input type="text" id="buscaCliente" placeholder="🔍 Buscar cliente..." oninput="renderClientes()">
+      </div>
+      <div class="clientes-tabela" id="tabelaClientes"></div>
+    </div>
+
+    <!-- ═══ FATURAMENTO ═══ -->
+    <div class="aba" id="aba-faturamento">
+      <div class="aba-header">
+        <h1>Faturamento</h1>
+        <select id="periodoFat" onchange="renderFaturamento()">
+          <option value="7">Últimos 7 dias</option>
+          <option value="30" selected>Últimos 30 dias</option>
+          <option value="90">Últimos 90 dias</option>
+        </select>
+      </div>
+      <div class="fat-kpis" id="fatKpis"></div>
+      <div class="fat-grid">
+        <div class="dash-card"><h3>Por serviço</h3><div id="fatPorServico"></div></div>
+        <div class="dash-card"><h3>Por profissional</h3><div id="fatPorProf"></div></div>
+      </div>
+      <div class="dash-card" style="margin-top:20px"><h3>Histórico de receitas</h3><div id="fatHistorico"></div></div>
+    </div>
+
+    <!-- ═══ ESTOQUE ═══ -->
+    <div class="aba" id="aba-estoque">
+      <div class="aba-header">
+        <h1>Estoque</h1>
+        <button class="btn-add" onclick="abrirModalEstoque()">+ Novo produto</button>
+      </div>
+      <div class="estoque-tabela" id="tabelaEstoque"></div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL AGENDAMENTO -->
+<div class="modal-overlay" id="modalOverlay" onclick="fecharModal()">
+  <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal()">✕</button>
+    <div id="modalConteudo"></div>
+  </div>
+</div>
+
+<!-- MODAL ESTOQUE -->
+<div class="modal-overlay" id="modalEstoqueOverlay" onclick="fecharModalEstoque()">
+  <div class="modal" id="modalEstoque" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModalEstoque()">✕</button>
+    <div class="modal-titulo">Produto</div>
+    <div class="form-group"><label>Nome do produto</label><input type="text" id="esNome" placeholder="Ex: Fio de tranças 100g"></div>
+    <div class="form-row2">
+      <div class="form-group"><label>Quantidade</label><input type="number" id="esQtd" min="0" value="0"></div>
+      <div class="form-group"><label>Estoque mínimo</label><input type="number" id="esMin" min="0" value="1"></div>
+      <div class="form-group"><label>Preço custo (R$)</label><input type="number" id="esPreco" min="0" step="0.01"></div>
+    </div>
+    <div class="form-group"><label>Categoria</label>
+      <select id="esCat"><option>Fio</option><option>Produto capilar</option><option>Acessório</option><option>Outro</option></select>
+    </div>
+    <input type="hidden" id="esEditId">
+    <button class="btn-login" onclick="salvarProduto()" style="margin-top:16px">Salvar produto</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* ═══════════════════════════════════════════
+   AGENDAR.CSS
+═══════════════════════════════════════════ */
+.agendar-body { background: var(--lilas); min-height: 100vh; }
+
+.agendar-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 20px 80px;
+}
+
+/* Progress */
+.progress-wrap {
+  height: 4px; background: rgba(107,47,163,.12);
+  border-radius: 4px; margin-bottom: 12px;
+}
+.progress-bar {
+  height: 100%; background: var(--roxo);
+  border-radius: 4px; transition: width .5s ease;
+}
+.steps-indicator {
+  display: flex; gap: 8px; justify-content: center;
+  margin-bottom: 36px; flex-wrap: wrap;
+}
+.step-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(107,47,163,.2);
+  transition: all .3s;
+  cursor: default;
+}
+.step-dot.ativo { background: var(--roxo); transform: scale(1.4); }
+.step-dot.done  { background: var(--roxo-med); }
+
+/* Telas */
+.tela-wrap { position: relative; min-height: 400px; }
+.tela {
+  display: none;
+  background: #fff;
+  border-radius: var(--r-lg);
+  padding: 48px 52px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--borda);
+  animation: fadeUp .4s ease both;
+}
+.tela.ativa { display: block; }
+
+.tela-num {
+  display: inline-block;
+  font-family: var(--font-disp); font-size: 14px; font-weight: 700;
+  color: var(--roxo); letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.tela-header { margin-bottom: 36px; }
+.tela-header h2 { font-family: var(--font-disp); font-size: 42px; color: var(--roxo-esc); letter-spacing: -1px; }
+.tela-header p  { font-size: 15px; color: var(--texto-cl); margin-top: 6px; }
+
+/* Form */
+.form-group { margin-bottom: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { display: block; font-size: 13px; font-weight: 600; color: var(--roxo-esc); margin-bottom: 8px; letter-spacing: .02em; }
+.req { color: var(--roxo); }
+.opcional { font-size: 11px; font-weight: 400; color: var(--texto-cl); }
+input[type=text], input[type=email], select, textarea {
+  width: 100%; padding: 14px 18px;
+  border: 1.5px solid rgba(107,47,163,.12);
+  border-radius: var(--r-sm);
+  font-size: 15px; font-family: var(--font-body);
+  color: var(--texto); background: #fff;
+  outline: none; transition: border-color .3s, box-shadow .3s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 4px rgba(107,47,163,.08);
+}
+input::placeholder { color: #bbb; }
+
+/* Botões de ação */
+.tela-actions { display: flex; gap: 12px; margin-top: 36px; align-items: center; flex-wrap: wrap; }
+.btn-prox {
+  flex: 1; padding: 15px 24px;
+  background: var(--roxo); color: #fff;
+  border: none; border-radius: 50px;
+  font-size: 15px; font-weight: 700; font-family: var(--font-body);
+  cursor: pointer; transition: all .3s;
+  box-shadow: 0 8px 24px rgba(107,47,163,.25);
+}
+.btn-prox:hover:not(:disabled) { background: var(--roxo-esc); transform: translateY(-2px); }
+.btn-prox:disabled { opacity: .45; cursor: not-allowed; transform: none !important; }
+.btn-voltar {
+  padding: 15px 20px; background: none;
+  border: 1.5px solid var(--borda); border-radius: 50px;
+  font-size: 14px; font-weight: 600; font-family: var(--font-body);
+  color: var(--texto-cl); cursor: pointer; transition: all .3s;
+}
+.btn-voltar:hover { border-color: var(--roxo); color: var(--roxo); }
+.btn-pular {
+  padding: 15px 20px; background: none;
+  border: 1.5px dashed var(--borda); border-radius: 50px;
+  font-size: 14px; font-weight: 600; font-family: var(--font-body);
+  color: var(--texto-cl); cursor: pointer; transition: all .3s;
+}
+.btn-pular:hover { border-color: var(--roxo-med); color: var(--roxo-med); }
+.btn-confirmar {
+  flex: 1; padding: 17px 24px;
+  background: var(--roxo-esc); color: #fff;
+  border: none; border-radius: 50px;
+  font-size: 16px; font-weight: 700; font-family: var(--font-body);
+  cursor: pointer; transition: all .3s;
+  box-shadow: 0 12px 32px rgba(43,21,58,.3);
+}
+.btn-confirmar:hover { transform: translateY(-2px); }
+.btn-confirmar:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ── TELA 2: Serviços ── */
+.servico-categorias {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+  margin-bottom: 24px;
+}
+.cat-btn {
+  padding: 12px 10px; border-radius: var(--r-sm);
+  border: 1.5px solid var(--borda);
+  background: #fff; cursor: pointer;
+  text-align: center; transition: all .25s;
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--roxo-esc);
+}
+.cat-btn:hover { border-color: var(--roxo); color: var(--roxo); }
+.cat-btn.selecionado { background: var(--roxo); color: #fff; border-color: var(--roxo); box-shadow: 0 4px 16px rgba(107,47,163,.25); }
+.cat-btn .cat-nota { display: block; font-size: 11px; font-weight: 400; margin-top: 2px; opacity: .75; }
+
+.sub-selecao { margin-bottom: 20px; }
+.sub-label { font-size: 13px; font-weight: 600; color: var(--roxo-esc); margin-bottom: 10px; }
+.sub-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.sub-opt {
+  padding: 9px 18px; border-radius: 30px;
+  border: 1.5px solid var(--borda); background: #fff;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: var(--font-body); color: var(--roxo-esc);
+  transition: all .25s;
+}
+.sub-opt:hover { border-color: var(--roxo); }
+.sub-opt.sel { background: var(--roxo); color: #fff; border-color: var(--roxo); }
+
+.itens-lista { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.item-opt {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 16px; border-radius: var(--r-sm);
+  border: 1.5px solid var(--borda); background: #fff;
+  cursor: pointer; transition: all .25s;
+}
+.item-opt:hover { border-color: var(--roxo); }
+.item-opt.sel { border-color: var(--roxo); background: var(--lilas); }
+.item-opt .item-nome { font-weight: 600; font-size: 14px; }
+.item-opt .item-dur  { font-size: 12px; color: var(--texto-cl); }
+.item-opt .item-preco{ font-weight: 700; font-size: 15px; color: var(--roxo); }
+
+/* Adicionais (nagô) */
+.adicionais-titulo { font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--roxo-esc); margin-bottom: 10px; }
+.adicionais-lista { display: flex; gap: 8px; flex-wrap: wrap; }
+.adic-opt {
+  padding: 8px 16px; border-radius: 30px;
+  border: 1.5px solid var(--borda); background: #fff;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: var(--font-body); color: var(--roxo-esc);
+  transition: all .25s;
+}
+.adic-opt.sel { background: var(--roxo-med); color: #fff; border-color: var(--roxo-med); }
+.adic-opt .adic-preco { font-size: 11px; opacity: .8; }
+
+.servico-resumo {
+  margin-top: 16px; padding: 14px 18px;
+  background: var(--lilas); border-radius: var(--r-sm);
+  font-size: 14px; font-weight: 500; color: var(--roxo-esc);
+}
+.servico-resumo strong { color: var(--roxo); font-size: 18px; }
+
+/* ── TELA 3: Fotos ── */
+.foto-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.foto-card {}
+.foto-label { font-size: 13px; font-weight: 600; color: var(--roxo-esc); margin-bottom: 10px; }
+.foto-drop {
+  border: 2px dashed rgba(107,47,163,.2); border-radius: var(--r-md);
+  min-height: 180px; cursor: pointer; position: relative;
+  overflow: hidden; transition: border-color .3s, background .3s;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--lilas);
+}
+.foto-drop:hover { border-color: var(--roxo); background: var(--lilas-med); }
+.foto-drop-inner { text-align: center; padding: 20px; }
+.foto-icon { font-size: 32px; margin-bottom: 8px; }
+.foto-drop p { font-size: 14px; font-weight: 500; color: var(--texto-cl); }
+.foto-drop small { font-size: 12px; color: #bbb; margin-top: 4px; display: block; }
+.foto-preview {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: none;
+}
+.foto-preview.visible { display: block; }
+.foto-drop.tem-foto .foto-drop-inner { display: none; }
+.foto-drop.tem-foto .foto-preview { display: block; }
+
+/* ── TELA 4: Cor/Tam ── */
+.cores-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; margin-bottom: 8px; }
+.cor-opt {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 10px 6px; border-radius: var(--r-sm);
+  border: 1.5px solid var(--borda); cursor: pointer; transition: all .25s;
+}
+.cor-opt:hover { border-color: var(--roxo); }
+.cor-opt.sel { border-color: var(--roxo); box-shadow: 0 0 0 3px rgba(107,47,163,.15); }
+.cor-bolinha { width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(0,0,0,.08); }
+.cor-bolinha.grad { background: conic-gradient(red,yellow,lime,cyan,blue,magenta,red); }
+.cor-opt span { font-size: 11px; font-weight: 600; text-align: center; color: var(--texto-cl); }
+
+.tamanho-opts { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.tam-opt {
+  padding: 18px 10px; border-radius: var(--r-md);
+  border: 1.5px solid var(--borda); text-align: center;
+  cursor: pointer; transition: all .25s;
+}
+.tam-opt:hover { border-color: var(--roxo); }
+.tam-opt.sel { border-color: var(--roxo); background: var(--lilas); box-shadow: 0 4px 16px rgba(107,47,163,.12); }
+.tam-icon { font-size: 20px; margin-bottom: 6px; letter-spacing: -4px; }
+.tam-opt span { display: block; font-size: 14px; font-weight: 700; color: var(--roxo-esc); }
+.tam-opt small { font-size: 11px; color: var(--texto-cl); }
+
+/* ── TELA 5: Profissional ── */
+.prof-selecao { display: flex; flex-direction: column; gap: 14px; }
+.prof-item {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 22px; border-radius: var(--r-md);
+  border: 1.5px solid var(--borda); background: #fff;
+  cursor: pointer; transition: all .25s;
+}
+.prof-item:hover { border-color: var(--roxo); }
+.prof-item.sel { border-color: var(--roxo); background: var(--lilas); }
+.prof-item .prof-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--lilas-med); color: var(--roxo); font-family: var(--font-disp); font-size: 24px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.prof-item .prof-info strong { display: block; font-size: 16px; color: var(--roxo-esc); }
+.prof-item .prof-info small  { font-size: 12px; color: var(--texto-cl); }
+.prof-item .prof-check { margin-left: auto; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--borda); display: flex; align-items: center; justify-content: center; transition: all .25s; }
+.prof-item.sel .prof-check { background: var(--roxo); border-color: var(--roxo); color: #fff; font-size: 14px; }
+
+/* ── TELA 6: Agenda ── */
+.agenda-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.calendario { background: var(--lilas); border-radius: var(--r-md); padding: 24px; }
+.cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.cal-mes { font-family: var(--font-disp); font-size: 22px; font-weight: 700; color: var(--roxo-esc); }
+.cal-nav { background: none; border: 1.5px solid var(--borda); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all .25s; }
+.cal-nav:hover { background: var(--roxo); color: #fff; border-color: var(--roxo); }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
+.cal-dow { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--texto-cl); padding: 4px 0 8px; }
+.cal-day {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 500; border-radius: 50%;
+  cursor: pointer; transition: all .2s; border: none; background: none;
+  font-family: var(--font-body);
+}
+.cal-day:hover:not(:disabled) { background: var(--lilas-med); }
+.cal-day.hoje { font-weight: 700; color: var(--roxo); }
+.cal-day.sel { background: var(--roxo); color: #fff; }
+.cal-day:disabled { color: #ccc; cursor: not-allowed; }
+.cal-day.passado { color: #ddd; cursor: not-allowed; }
+
+.horarios-titulo { font-size: 14px; font-weight: 700; color: var(--roxo-esc); margin-bottom: 14px; }
+.horarios-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.hora-btn {
+  padding: 10px; border-radius: var(--r-sm);
+  border: 1.5px solid var(--borda); background: #fff;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: var(--font-body); color: var(--roxo-esc);
+  transition: all .25s; text-align: center;
+}
+.hora-btn:hover:not(:disabled) { border-color: var(--roxo); color: var(--roxo); }
+.hora-btn.sel { background: var(--roxo); color: #fff; border-color: var(--roxo); }
+.hora-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ── TELA 7: Resumo ── */
+.resumo-final { background: var(--lilas); border-radius: var(--r-md); padding: 28px; margin-bottom: 24px; }
+.resumo-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(107,47,163,.08); }
+.resumo-row:last-child { border-bottom: none; }
+.resumo-key { font-size: 13px; color: var(--texto-cl); }
+.resumo-val { font-size: 14px; font-weight: 600; color: var(--roxo-esc); text-align: right; max-width: 60%; }
+.resumo-total { margin-top: 16px; padding-top: 16px; border-top: 2px solid var(--borda); display: flex; justify-content: space-between; align-items: center; }
+.resumo-total span:first-child { font-weight: 700; font-size: 15px; color: var(--roxo-esc); }
+.resumo-total strong { font-family: var(--font-disp); font-size: 28px; color: var(--roxo); }
+
+.politica-box { background: #fff; border: 1px solid var(--borda); border-radius: var(--r-md); padding: 24px; }
+.politica-box h4 { font-size: 15px; font-weight: 700; color: var(--roxo-esc); margin-bottom: 12px; }
+.politica-box p { font-size: 14px; color: var(--texto-cl); line-height: 1.7; margin-bottom: 8px; }
+.aceite-label { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 14px; font-weight: 600; cursor: pointer; color: var(--roxo-esc); }
+.aceite-label input { accent-color: var(--roxo); width: 18px; height: 18px; }
+
+/* ── TELA 8: Análise ── */
+.tela-analise { text-align: center; padding: 20px 0; }
+.analise-icon { font-size: 64px; margin-bottom: 20px; display: block; animation: pulse 2s ease infinite; }
+.tela-analise h2 { font-family: var(--font-disp); font-size: 40px; color: var(--roxo-esc); margin-bottom: 12px; }
+.tela-analise p { font-size: 16px; color: var(--texto-cl); line-height: 1.7; max-width: 420px; margin: 0 auto 20px; }
+.analise-info { background: var(--lilas); border-radius: var(--r-md); padding: 20px; margin: 0 auto; max-width: 400px; font-size: 14px; line-height: 1.8; color: var(--roxo-esc); font-weight: 500; }
+.tela-analise .btn-primary, .tela-analise .btn-ghost { display: block; max-width: 300px; margin-left: auto; margin-right: auto; text-align: center; }
+
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .tela { padding: 32px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .servico-categorias { grid-template-columns: repeat(2,1fr); }
+  .cores-grid { grid-template-columns: repeat(4,1fr); }
+  .tamanho-opts { grid-template-columns: repeat(2,1fr); }
+  .agenda-wrap { grid-template-columns: 1fr; }
+  .foto-cards { grid-template-columns: 1fr; }
+  .tela-header h2 { font-size: 32px; }
+}
